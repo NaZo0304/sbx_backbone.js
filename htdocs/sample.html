@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <title>hello-backbonejs</title>
+
+    <script type="text/javascript" src="./js/backbone/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="./js/backbone/json2.js"></script>
+    <script type="text/javascript" src="./js/backbone/underscore.js"></script>
+    <script type="text/javascript" src="./js/backbone/backbone.js"></script>
+
+    <script type="text/javascript" src="./js/enchant/enchant.js"></script>
+  </head>
+  <body>
+
+    <input type="text" id="blogIdTxt" value="" />
+    <input type="button" id="searchBtn" value="りすと" />
+    <div id="blog" >
+      <span id="blog_id">BlogID</span><br />
+      <span id="title">タイトル</span><br />
+      <span id="content">内容</span><br />
+      <span id="tag">タグ</span><br />
+      <span id="updated_at">00/00/00 00:00:00</span><br />
+      <span id="created_at">00/00/00 00:00:00</span><br />
+    </div>
+    <script src="./js/develop/blog.js" type="text/javascript"></script>
+    <script >
+    enchant();
+
+    window.onload = function() {
+        var game = new Game(320, 320);
+        game.fps = 24;
+        game.preload('chara1.gif');
+        // The images used in the game should be preloaded
+
+        game.onload = function() {
+            var bear = new Sprite(32, 32);
+            bear.x = 8;
+            bear.y = 8;
+            bear.image = game.assets['chara1.gif'];
+
+            bear.addEventListener('enterframe', function(e) {
+                // check input (from key or pad) on every frame
+                if (game.input.right) {
+                    bear.x += 2;
+                }
+                if (game.input.left) {
+                    bear.x -= 2;
+                }
+
+                if (game.input.up) {
+                    bear.y -= 2;
+                }
+                if (game.input.down) {
+                    bear.y += 2;
+                }
+            });
+
+            // add bear to rootScene (default scene)
+            game.rootScene.addChild(bear);
+
+            // display d-pad
+            var pad = new Pad();
+            pad.x = 0;
+            pad.y = 224;
+            game.rootScene.addChild(pad);
+            game.rootScene.backgroundColor = '#ffffff';
+        };
+        game.start();
+    };
+    </script>
+  </body>
+  </html>
