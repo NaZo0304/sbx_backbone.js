@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if IE 7]>  <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>  <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -172,6 +172,53 @@
 		</li>
 	</ol>
 </section>
+<section class="slide" id="detail_f_1">
+	<h2>詳細（フロント①）</h2>
+	<p>MAPについて</p>
+	<ol>
+		<li>
+			<h3>縦・横幅</h3>
+			<p>32 x 32 の正方形</p>
+			<p>enchant.js の exsample/rpg MAP画像を流用</p>
+		</li>
+		<li>
+			<h3>移動判定について</h3>
+			<p>MAP DATAと一緒にcollisionの配列で移動可かどうかを管理し、移動判定に利用する。</p>
+			<p> 0 = 移動可能 / -1 以下 移動不可能 + 地形の状態管理 / 1 以上 移動可能 + 地形の状態管理</p>
+		</li>
+	</ol>
+	<p>例</p>
+	<p>
+      map.maptipdata  = [322,322,322,322,322,322,224,225,225,225,225,225,167,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205],
+      map.collisionData = [ 0, 0, 0, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1],
+    </p>      
+</section>
+<section class="slide" id="detail_f_2">
+	<h2>詳細（フロント②）</h2>
+	<p>自キャラクター・他キャラクターについて</p>
+	<ol>
+		<li>
+			<h3>縦・横幅</h3>
+			<p>xx x xx の長方形</p>
+			<p>enchant.js の exsample/rpg char画像を流用(３人分）</p>
+			<p>色分けして自分と他人と区別したらいいかな？まずはｗ</p>
+		</li>
+		<li>
+			<h3>移動について</h3>
+			<p>WSAD or ↑↓←→で移動</p>
+			<p>pixel単位で移動して移動可能判定を常に処理しながら移動する。</p>
+			<p>スキル詠唱中は、移動不可能</p>
+			<p>スキル詠唱後、ターゲッティングする状態以降、移動可能</p>
+			<p>ようは、詠唱中以外移動可能</p>
+		</li>
+	</ol>
+	<p>例</p>
+	<p>
+      map.maptipdata  = [322,322,322,322,322,322,224,225,225,225,225,225,167,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205],
+      map.collisionData = [ 0, 0, 0, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1],
+    </p>      
+</section>
+
 
 <!-- deck.navigation snippet -->
 <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
